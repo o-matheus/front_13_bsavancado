@@ -244,3 +244,19 @@ Construir um menu dropdown envolve 4 processos:
 
 ## Aula 4 - Modal
 Modal também é conhecido como popUp.
+
+### Classes:
+- `btn-dark` -> botão com fundo escuro.
+- `modal` -> Estilização para que o elemento seja um popUp, organiza a relação do background e sua interação com outros elementos.
+- `modal-dialog` -> Define tamanho, layout e centralização do popUp .
+- `model-content` -> Defome a estitira  .
+    - Título, cabeçalho, corpo e rodapé 
+- `` -> .
+- `` -> .
+- `` -> .
+
+
+### Atributos de comportamento (data-bs-*):
+- `toggle="modal"` -> Ativa a interação que vai levar o modal a funcionar.
+- `target="id_alvo"` -> Diz que elemento vai ser afetado pelo comportamento.
+- `backdrop="static"` -> Retira o comportamento de clicar fora do modal para fecha-lo.

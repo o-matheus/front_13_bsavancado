@@ -4,6 +4,7 @@
 [Aula 1 - Cards](#aula-1---cards)  
 [Aula 2 - Carousel](#aula-2---carousel)  
 [Aula 3 - Dropdown](#aula-3---dropdown)  
+[Aula 4 - Modal](#aula-4---modal)  
 
 
 ## Aula 1 - Cards
@@ -241,3 +242,5 @@ Construir um menu dropdown envolve 4 processos:
 ### Atributos de comportamento (data-bs-*):
 - `data-bs-toggle="dropdown"`: Ativa o comportamento do dropdown, fazendo com que o botão mostre ou esconda o menu suspenso.
 
+## Aula 4 - Modal
+Modal também é conhecido como popUp.

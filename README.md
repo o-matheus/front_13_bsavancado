@@ -3,6 +3,7 @@
 ## Menu
 [Aula 1 - Cards](#aula-1---cards)  
 [Aula 2 - Carousel](#aula-2---carousel)  
+[Aula 3 - Dropdown](#aula-3---dropdown)  
 
 
 ## Aula 1 - Cards
@@ -189,4 +190,54 @@ Nesta aula vamos aprender a fazer um carrossel utilizando o Bootstrap. Fiquei tr
 * `data-bs-target="seletorCSS"` → Define qual seletor CSS (geralmente um `#id`) será afetado pela ação do usuário.
 * `data-bs-slide="next" | "prev"` → Indica se o botão deve avançar ou retroceder o slide.
 * `data-bs-slide-to="0"` → Leva o carrossel até o slide correspondente à posição informada (começando em 0).
+
+## Aula 3 - Dropdown
+
+Construir um menu dropdown envolve 4 processos:
+
+1. **Planejamento da estrutura**: Entender como será a estrutura do container, quais funcionalidades o menu dropdown terá e em que parte do site ele será aplicado.
+
+2. **Criação do container**: Criar uma `div.container` que envolverá toda a estrutura, ou uma `div` com uma classe específica para conter o menu.
+```html
+<div class="container">
+
+</div>
+```
+
+3. **Botão de ativação**: Criar um botão com a seguinte estrutura, que será responsável por abrir e fechar o menu:
+```html
+<div class="container">
+    <button data-bs-toggle="dropdown" class="btn btn-primary dropdown-toggle">Menu</button>
+</div>
+```
+
+4. **Lista de itens do menu**: Adicionar uma lista com os itens do menu dropdown:
+```html
+<div class="container">
+    <div class="dropdown">
+        <button data-bs-toggle="dropdown" class="btn btn-primary dropdown-toggle">Menu</button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Novo usuário</a></li>
+            <li><a class="dropdown-item" href="#">Novo fornecedor</a></li>
+            <li><a class="dropdown-item" href="#">Novo funcionário</a></li>
+        </ul>
+    </div>
+</div>
+```
+
+É possível adicionar um segundo botão com outra função (por exemplo, um botão de cadastro e outro com o dropdown), como mostrado no exemplo da aula. Consulte o arquivo `dropdown.html` para visualizar a estrutura completa.
+
+### Classes:
+- `container`: Define largura máxima, centraliza o conteúdo e aplica espaçamento interno.
+- `btn-group`: Agrupa botões com aparência de estrutura unificada, mas com funções distintas.
+- `dropdown`: Define o posicionamento relativo para exibir corretamente o menu.
+- `btn`: Aplica o estilo base do botão (padding, tamanho da fonte, borda arredondada, transição, cursor).
+- `btn-primary`: Aplica estilo azul ao botão.
+- `dropdown-toggle`: Adiciona estilo de botão que aciona menu, com seta indicativa.
+- `dropdown-menu`: Aplica `display: none` por padrão, gerencia `z-index` e `position` para sobreposição correta.
+- `dropdown-menu-dark`: Altera o menu para tema escuro.
+- `dropdown-item`: Estiliza itens do menu como elementos clicáveis.
+
+### Atributos de comportamento (data-bs-*):
+- `data-bs-toggle="dropdown"`: Ativa o comportamento do dropdown, fazendo com que o botão mostre ou esconda o menu suspenso.
 

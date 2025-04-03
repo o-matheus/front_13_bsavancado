@@ -243,20 +243,62 @@ Construir um menu dropdown envolve 4 processos:
 - `data-bs-toggle="dropdown"`: Ativa o comportamento do dropdown, fazendo com que o botão mostre ou esconda o menu suspenso.
 
 ## Aula 4 - Modal
-Modal também é conhecido como popUp.
+
+Modal também é conhecido como *popup*.
+
+```html
+<button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exemplo-modal">
+    Abrir modal
+</button>
+<div class="modal" id="exemplo-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Título da modal</h5>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, earum?</p>
+            </div>
+            <div class="modal-footer">
+                <h5>Rodapé da modal</h5>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### Estrutura básica do modal
+
+```javascript
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modalExemplo = new bootstrap.Modal('#exemplo-modal');
+        setTimeout(function() {
+            modalExemplo.show();
+        }, 3000);
+    });
+</script>
+```
+
+Esse JS verifica quando o documento estiver completamente carregado. Ao carregar, executa uma função que cria uma instância do modal via JavaScript, e define que após um atraso de três segundos o modal deve ser exibido.
 
 ### Classes:
-- `btn-dark` -> botão com fundo escuro.
-- `modal` -> Estilização para que o elemento seja um popUp, organiza a relação do background e sua interação com outros elementos.
-- `modal-dialog` -> Define tamanho, layout e centralização do popUp .
-- `model-content` -> Defome a estitira  .
-    - Título, cabeçalho, corpo e rodapé 
-- `` -> .
-- `` -> .
-- `` -> .
+- `btn-dark` → Botão com fundo escuro.
+- `btn-danger` → Botão com fundo vermelho.
+- `btn-success` → Botão com fundo verde.
+- `btn-close` → Estilização para o botão de fechar.
+- `modal` → Define o elemento como um popup e organiza a relação com o fundo e a interação com outros elementos.
+- `modal-dialog` → Define o tamanho, layout e centralização do popup.
+- `modal-content` → Define a estrutura interna do modal, contendo:
+  - `modal-header` (Título)
+  - `modal-body` (Corpo)
+  - `modal-footer` (Rodapé)
+
+### Atributos de comportamento (`data-bs-*`):
+- `data-bs-toggle="modal"` → Ativa a interação para exibir o modal.
+- `data-bs-target="#id_alvo"` → Define qual elemento será afetado pela interação.
+- `data-bs-backdrop="static"` → Impede que o modal seja fechado ao clicar fora dele.
+- `data-bs-dismiss="modal"` → Indica que o elemento (geralmente um botão) fechará o modal ao ser clicado.
 
 
-### Atributos de comportamento (data-bs-*):
-- `toggle="modal"` -> Ativa a interação que vai levar o modal a funcionar.
-- `target="id_alvo"` -> Diz que elemento vai ser afetado pelo comportamento.
-- `backdrop="static"` -> Retira o comportamento de clicar fora do modal para fecha-lo.
+

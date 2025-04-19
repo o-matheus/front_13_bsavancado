@@ -33,6 +33,7 @@
                         </li>
                     </ul>
                 </nav>
+                <button id="b-email" class="btn btn-warning" type="button">Ativar Toast</button>
             </div>
         </div>
     </header>
@@ -43,9 +44,29 @@
         <section id="produtos">
             <h2>Produtos</h2>
             <div class="container">
-                <nav>
-                    
+                <nav class="nav nav-tabs">
+                    <button data-bs-toggle="tab" data-bs-target="#aba_eletronicos" class="nav-link active"
+                        type="button">Eletrônicos</button>
+                    <button data-bs-toggle="tab" data-bs-target="#aba_moda_masculina" class="nav-link"
+                        type="button">Moda Masculina</button>
+                    <button data-bs-toggle="tab" data-bs-target="#aba_moda_feminina" class="nav-link" type="button">Moda
+                        Feminina</button>
                 </nav>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="aba_eletronicos">
+                        <p>Conteúdo da aba Eletrônicos</p>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane" id="aba_moda_masculina">
+                        <p>Conteúdo da aba Moda Masculina</p>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane" id="aba_moda_feminina">
+                        <p>Conteúdo da aba Moda Feminina</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="promocoes">
@@ -56,7 +77,25 @@
         </section>
     </div>
 
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div class="toast" id="toast-teste">
+            <header class="toast-header">
+                <strong>Importantes</strong>
+            </header>
+            <div class="toast-body">
+                <p>Você possui 10 mensagens não lidas</p>
+                <div class="mt-2 pt-2 border-top">
+                    <button data-bs-dismiss="toast" class="btn btn-danger" type="button">
+                        Fechar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script src="lib/bootstrap.bundle.min.js"></script>
+    <script src="toast.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,8 @@
 [Aula 3 - Dropdown](#aula-3---dropdown)  
 [Aula 4 - Modal](#aula-4---modal)  
 [Aula 5 - Navbar](#aula-5---navbar)  
-[Aula 6 - Navbar](#aula-6---abas)  
+[Aula 6 - Abas](#aula-6---abas)  
+[Aula 7 - Toast](#aula-7---toast)  
 
 
 ## Aula 1 - Cards
@@ -409,6 +410,83 @@ header {
 - Uso das ferramentas de desenvolvedor ajudou a entender comportamentos inesperados.
 
 ## Aula 6 - Abas
+**Resumo: Criando abas no Bootstrap**
 
+**Configuração inicial das abas:**
+- Em vez de criar um novo HTML, utilizaremos o HTML criado anteriormente para a seção do NavBar.
+- Navegamos para a seção de produtos e localizamos o título `h2-produtos`.
+- Abaixo do `h2-produtos`, criamos uma `<div>` com a classe `container` e um elemento `<nav>`.
+- No `<nav>`, adicionamos botões que representam as categorias de produtos do site.
+- Para estilizar os botões como abas, adicionamos ao `<nav>` as classes `nav` e `nav-tabs`.
 
+**Adicionando classes aos botões:**
+- Cada botão dentro do `<nav>` recebe a classe `nav-link`.
+- Para destacar o botão ativo, usamos a classe `active`. Isso aplica uma estilização diferente ao botão correspondente à aba atualmente selecionada.
 
+**Criando o conteúdo das abas:**
+- Abaixo da tag `<nav>`, adicionamos uma `<div>` com a classe `tab-content`.
+- Dentro de `tab-content`, criamos `<div>`s individuais para cada aba, usando a classe `tab-pane`.
+- A aba inicial (ativa) também recebe a classe `active`.
+
+**Adicionando interatividade:**
+- Cada botão no `<nav>` precisa de dois atributos `data-bs`:
+  - `data-bs-toggle="tab"`: Indica que o botão está ligado a uma aba.
+  - `data-bs-target="#id_da_aba"`: Vincula o botão a um painel de conteúdo específico.
+- As `<div>`s de conteúdo recebem IDs correspondentes (por exemplo, `id="eletronicos"` ou `id="moda-feminina"`).
+- Essa configuração garante que ao clicar nos botões, o conteúdo das abas seja exibido corretamente.
+
+**Alterando a aparência das abas:**
+- Caso prefira uma aparência diferente, substitua `nav-tabs` por `nav-pills` no `<nav>`.
+- Essa modificação altera a aparência do menu de abas, mantendo a funcionalidade.
+
+## Aula 7 - Toast
+**Resumo: Introdução aos Toast no Bootstrap**
+
+**O que são Toasts?**
+- Toasts são notificações que aparecem no canto inferior direito da página.
+- Geralmente, indicam a chegada de mensagens, alertas, ou outras notificações.
+- Eles são projetados para serem discretos, exibindo informações rapidamente sem interromper a navegação do usuário.
+
+**Estrutura básica do Toast:**
+- Uma `div` maior possui a classe `toast-container` e engloba todos os Toasts.
+- Cada Toast individual possui:
+  - Uma `div` com a classe `toast`.
+  - Um cabeçalho (`header`) com a classe `toast-header`, onde é inserida uma tag `strong` contendo o texto do título.
+  - Uma `div` com a classe `toast-body` contendo a mensagem de notificação.
+
+**Interatividade com JavaScript:**
+- Após criar a estrutura básica, é necessário alterar o código JavaScript para exibir a notificação.
+- Inicialmente, o Toast é apenas um elemento oculto no site e precisa de ajustes no JavaScript para ser exibido corretamente.
+
+**Ação manual para chamar o Toast:**
+- Assim como ao estudar as abas, estamos utilizando como base o código do `navbar.html`.
+- Por padrão, Toasts são acionados por eventos. Porém, sem um back-end, ele ensina como disparar o Toast manualmente.
+- Para isso, adicionamos um botão logo abaixo da tag `nav` que constrói o menu do site:
+  - O botão tem um `id` específico, por exemplo, `btn-checkar-emails`.
+  - A tag `button` possui o atributo `type="button"` e classes que definem seu estilo e comportamento.
+
+**Adicionando IDs e classes ao Toast:**
+- O Toast que será exibido recebe uma `id`, por exemplo, `toastTest`.
+- No JavaScript, criamos duas constantes:
+  - `const ativarToast = document.getElementById('btn-checkar-emails');`
+  - `const mensagem = document.getElementById('toastTest');`
+- Usamos `ativarToast.addEventListener('click', () => { toast.show(); });` para exibir o Toast ao clicar no botão.
+- A constante `toast` é definida como `const toast = new bootstrap.Toast(mensagem);` para instanciar o Toast com a mensagem correspondente.
+
+**Estilização adicional:**
+- Classes aplicadas na `toast-container`:
+  - `position-fixed`: fixa a posição do Toast.
+  - `bottom-0`: alinha o Toast ao fundo da página.
+  - `end-0`: alinha o Toast à direita.
+  - `p-3`: adiciona um pequeno espaço ao redor dos Toasts.
+
+**Adicionando botão de fechar ao Toast:**
+- Dentro da `toast-body`, criamos um botão com:
+  - Classe `btn btn-danger`: estiliza o botão como um botão vermelho.
+  - Atributo `data-bs-dismiss="toast"`: permite que o Toast seja fechado.
+  - Texto do botão: “Fechar”.
+
+**Manter o Toast visível:**
+- Para impedir que o Toast seja ocultado automaticamente após alguns segundos:
+  - Adicione o atributo `data-bs-autohide="false"` na `div` que possui a classe `toast`.
+  - Com isso, o Toast permanecerá visível até que seja fechado manualmente.

@@ -5,6 +5,8 @@
 [Aula 2 - Carousel](#aula-2---carousel)  
 [Aula 3 - Dropdown](#aula-3---dropdown)  
 [Aula 4 - Modal](#aula-4---modal)  
+[Aula 5 - Navbar](#aula-5---navbar)  
+[Aula 6 - Navbar](#aula-6---abas)  
 
 
 ## Aula 1 - Cards
@@ -299,6 +301,114 @@ Esse JS verifica quando o documento estiver completamente carregado. Ao carregar
 - `data-bs-target="#id_alvo"` → Define qual elemento será afetado pela interação.
 - `data-bs-backdrop="static"` → Impede que o modal seja fechado ao clicar fora dele.
 - `data-bs-dismiss="modal"` → Indica que o elemento (geralmente um botão) fechará o modal ao ser clicado.
+
+## Aula 5 - Navbar
+#### **Resumo Geral da Aula**
+Esta aula apresentou a construção de uma barra de navegação (navbar) utilizando Bootstrap. Foi ensinado como criar a estrutura HTML da navbar, aplicar as classes do Bootstrap para estilização e comportamento responsivo, adicionar interações como o menu hambúrguer no mobile, e ativar o realce automático da seção ativa com o scrollspy. Também foram abordadas correções de posicionamento e boas práticas de estilização com CSS externo, além de observações práticas feitas durante o desenvolvimento do projeto.
+
+#### **1. Estrutura Inicial do HTML**
+- Usou o atalho do VSCode para gerar o template base do HTML.
+- Importou o **JavaScript** e o **CSS** do Bootstrap a partir de arquivos baixados em aulas anteriores.
+
+#### **2. Estrutura da Navbar**
+```html
+<header>
+  <div class="navbar">
+    <h1>Título do site</h1>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item"><a href="#inicio" class="nav-link active">Início</a></li>
+        <li class="nav-item"><a href="#produtos" class="nav-link">Produtos</a></li>
+        <li class="nav-item"><a href="#promocoes" class="nav-link">Promoções</a></li>
+        <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+```
+
+#### **3. Descrição das Classes Utilizadas**
+- `navbar`: define o contêiner de navegação principal.
+- `container`: centraliza e delimita o conteúdo da navbar.
+- `nav`: transforma lista em navegação horizontal, sem marcadores.
+- `nav-pills`: aplica estilo de abas (botões) nos links.
+- `nav-item`: define espaçamento e estrutura dos itens da lista.
+- `nav-link`: estiliza e ativa comportamento de links de navegação.
+- `active`: destaca o item atual do menu com estilo visual.
+- `navbar-toggler`: cria botão de alternância visível no mobile.
+- `navbar-toggler-icon`: insere ícone padrão de menu hambúrguer.
+- `collapse`: permite que o conteúdo seja mostrado/escondido dinamicamente.
+- `navbar-collapse`: estiliza o conteúdo a ser colapsado na navbar.
+- `navbar-nav`: organiza os links verticalmente no modo colapsado.
+- `justify-content-end`: alinha o conteúdo ao final do eixo principal.
+- `navbar-expand-lg`: navbar será colapsável abaixo do breakpoint 'lg'.
+
+#### **4. Atributos data-bs e suas funções**
+- `data-bs-toggle="collapse"`: habilita a alternância de visibilidade de elementos.
+- `data-bs-target="#menu"`: especifica o elemento alvo para a alternância.
+- `data-bs-spy="scroll"`: ativa o comportamento de scrollspy (observa a rolagem).
+- `data-bs-target="#cabecalho"`: define o elemento onde a atualização do scrollspy será aplicada.
+
+#### **5. Responsividade e Comportamento do Menu**
+- A navbar é colapsável no mobile, visível no desktop.
+- Os itens do menu se alinham à direita com `justify-content-end`.
+- Links se destacam ao clicar ou ao rolar a página.
+
+#### **6. Estilização com CSS Externo**
+```css
+.navbar-nav .nav-link.active {
+  color: white;
+}
+
+.nav-link {
+  text-align: center;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+```
+- A navbar permanece fixa no topo.
+- O link ativo ganha contraste com a cor de fundo.
+- Os links são centralizados horizontalmente.
+
+#### **7. Criação de Seções e Ativação do Scrollspy**
+- Criadas seções com IDs correspondentes aos links do menu:
+```html
+<section id="inicio"><h2>Início</h2></section>
+<section id="produtos"><h2>Produtos</h2></section>
+<section id="promocoes"><h2>Promoções</h2></section>
+<section id="contato"><h2>Contato</h2></section>
+```
+- Cada seção recebeu `height: 100vh` e `background-color: #ccc` para distinção visual.
+- Envolveu todas as seções em uma `div` com:
+```html
+<div data-bs-spy="scroll" data-bs-target="#cabecalho">
+  <!-- Seções aqui -->
+</div>
+```
+- O cabeçalho recebeu `id="cabecalho"`.
+- O scrollspy detecta a rolagem e destaca o item correspondente no menu.
+
+#### **8. Problemas e Soluções**
+- Menu cobria o início das seções ao clicar em links.
+- Solução: adicionar `padding-top` nas seções.
+- Espaço inicial inesperado ao carregar a página.
+- Testes com IDs e estrutura ajudaram a ajustar comportamento.
+
+---
+
+### Comentários / Dificuldades
+- Espaçamento inicial estranho quando a página carregava, ainda sem destaque.
+- Tentativas de resolver com ajustes no `id` ou substituição com `#`, sem sucesso.
+- Funcionamento final satisfatório após ajustes de layout e interatividade.
+- Preferência por CSS externo ao invés de `style` embutido.
+- Uso das ferramentas de desenvolvedor ajudou a entender comportamentos inesperados.
+
+## Aula 6 - Abas
 
 
 
